@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 2.0.1
+
+### Patch Changes
+
+- f75f104: fixed access scope
+
 ## 2.0.0
 
 ### Major Changes
