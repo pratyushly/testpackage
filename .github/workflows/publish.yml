@@ -1,9 +1,5 @@
-name: Publish
+name: Distribution Worflow
 on:
-  workflow_run:
-    workflows: ["CI"]
-    types:
-      - completed
   push:
     branches:
       - "main"
@@ -11,11 +7,7 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  publish:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    permissions:
-      contents: write
-      pull-requests: write
+  test-and-publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -28,11 +20,11 @@ jobs:
           cache: "pnpm"
 
       - run: pnpm install --frozen-lockfile
-      - name: Create Release Pull Request or Publish
+      - name: Changeset - Either create a pull request or publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
-          publish: pnpm run release
+          publish: pnpm distribute
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
