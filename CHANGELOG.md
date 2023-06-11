@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.1
+
+### Patch Changes
+
+- 33881af: breaking on puropose
+
 ## 3.0.0
 
 ### Major Changes
