@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.0
+
+### Major Changes
+
+- e6c4359: testing releases
+
 ## 2.0.1
 
 ### Patch Changes
