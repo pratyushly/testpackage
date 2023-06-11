@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.4
+
+### Patch Changes
+
+- a7e706e: add changeset
+
 ## 3.0.3
 
 ### Patch Changes
