@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.6
+
+### Patch Changes
+
+- 8f543ee: refactor for manual package version pump up
+
 ## 3.0.4
 
 ### Patch Changes
