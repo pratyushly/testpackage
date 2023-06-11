@@ -1,0 +1,31 @@
+{
+  "name": "@pratyushly/testpackage2",
+  "version": "1.0.8",
+  "description": "",
+  "author": "Pratyush Goel",
+  "homepage": "https://github.com/pratyushly/testpackage#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup index.ts --format cjs,esm --dts",
+    "lint": "tsc"
+  },
+  "keywords": [],
+  "devDependencies": {
+    "@changesets/cli": "^2.26.1",
+    "tsup": "^6.7.0",
+    "typescript": "^5.1.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pratyushly/testpackage.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pratyushly/testpackage/issues"
+  },
+  "license": "Apache-2.0"
+}
