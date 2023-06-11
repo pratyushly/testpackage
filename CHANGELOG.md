@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.3
+
+### Patch Changes
+
+- 6a20b53: change message for the users
+
 ## 3.0.2
 
 ### Patch Changes
