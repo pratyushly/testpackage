@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.2
+
+### Patch Changes
+
+- 370d09f: pushing bug to npm
+
 ## 3.0.1
 
 ### Patch Changes
