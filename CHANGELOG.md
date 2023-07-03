@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.9
+
+### Patch Changes
+
+- 1bc72bc: testing github action
+
 ## 3.0.8
 
 ### Patch Changes
