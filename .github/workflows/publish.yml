@@ -70,6 +70,6 @@ jobs:
       # We install all the dependencies
       - run: pnpm install --frozen-lockfile
       - name: Publish on GitHub packages
-        run: npm ci && npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
