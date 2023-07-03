@@ -55,7 +55,7 @@ jobs:
   publish-gpr:
     needs: [test-and-publish]
     runs-on: ubuntu-latest
-    if: needs.test-and-publish.outputs.changesetSuccess == 'true'
+    # if: needs.test-and-publish.outputs.changesetSuccess == 'true'
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
