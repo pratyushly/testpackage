@@ -50,7 +50,7 @@ jobs:
       - name: Changeset success
         id: setChangesetSuccess
         if: steps.changesets.outputs.published == 'true'
-        run: echo "::set-output name=changesetSuccess::true"
+        run: echo "changesetSuccess=true" >> $GITHUB_OUTPUT
 
   publish-gpr:
     needs: [test-and-publish]
