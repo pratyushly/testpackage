@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.8
+
+### Patch Changes
+
+- 8a84172: add husky
+
 ## 3.0.6
 
 ### Patch Changes
