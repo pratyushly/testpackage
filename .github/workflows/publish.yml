@@ -7,10 +7,10 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  test-and-publish:
+  publish-on-npm:
     runs-on: ubuntu-latest
     outputs:
-      changesetSuccess: ${{ steps.setChangesetSuccess.outputs.changesetSuccess }}
+      published: ${{ steps.setPublished.outputs.published }}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -24,7 +24,7 @@ jobs:
       # We install all the dependencies
       - run: pnpm install --frozen-lockfile
       
-      # We check if whether we have a changeset or not
+      # We check whether we have a changeset or not
       #
       # If there is no changeset, then it means that it is an ordinary commit
       # and the action simply runs `pnpm distribute`
@@ -32,12 +32,12 @@ jobs:
       # so npm will not publish this new commit 
       # (good for commit types like refactor:)
       #
-      # However, if there is a changeset, then it means the version needs to be pumped up
-      # so changeset will create a PR to update the changelog and the version
+      # However, if there is a changeset, then it means the version needs to be bumped up.
+      # So, changeset will create a PR to update the changelog and the version.
       #
       # After we accept the PR, we will have a new commit,
       # without a changeset, which will cause this new commit to through `pnpm distribute`
-      # and because this time the version has been changed so, npm will publish it :)
+      # and because this time the version has been updated so, npm will publish it :)
       - name: Changeset - Either create a pull request or publish to npm
         id: changesets
         uses: changesets/action@v1
@@ -47,15 +47,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-      - name: Changeset success
-        id: setChangesetSuccess
+      - name: Post Publish
+        id: setPublished
         if: steps.changesets.outputs.published == 'true'
-        run: echo "changesetSuccess=true" >> $GITHUB_OUTPUT
+        run: echo "published=true" >> $GITHUB_OUTPUT
 
-  publish-gpr:
-    needs: [test-and-publish]
+  publish-on-github-packages:
+    needs: [publish-on-npm]
     runs-on: ubuntu-latest
-    # if: needs.test-and-publish.outputs.changesetSuccess == 'true'
+    # If package was published on npm, we publish it on GitHub Packages
+    if: needs.publish-on-npm.outputs.published == 'true'
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -65,6 +66,7 @@ jobs:
         with:
           node-version: 16.x
           cache: "pnpm"
+          # We set registry to GitHub Packages
           registry-url: https://npm.pkg.github.com/
 
       # We install all the dependencies
