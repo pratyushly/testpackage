@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.11
+
+### Patch Changes
+
+- 53b1a21: test
+
 ## 3.0.10
 
 ### Patch Changes
