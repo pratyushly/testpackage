@@ -38,7 +38,7 @@ jobs:
       # After we accept the PR, we will have a new commit,
       # without a changeset, which will cause this new commit to through `pnpm distribute`
       # and because this time the version has been updated so, npm will publish it :)
-      - name: Changeset - Either create a pull request or publish to npm
+      - name: Changeset - Either create a pull request or publish on npm
         id: changesets
         uses: changesets/action@v1
         with:

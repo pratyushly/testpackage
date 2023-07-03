@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.12
+
+### Patch Changes
+
+- aba3583: 123
+
 ## 3.0.11
 
 ### Patch Changes
