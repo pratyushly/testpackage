@@ -1,5 +1,11 @@
 # @pratyushly/testpackage2
 
+## 3.0.10
+
+### Patch Changes
+
+- bbb30ca: testing
+
 ## 3.0.9
 
 ### Patch Changes
